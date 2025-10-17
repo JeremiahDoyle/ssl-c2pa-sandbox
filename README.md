@@ -445,11 +445,44 @@ Contact SSL.com support if you need higher rate limits for production use.
 
 ## Testing Tool
 
-This repository includes a comprehensive web-based testing tool for experimenting with the APIs:
+This repository includes a comprehensive web-based testing tool for experimenting with the APIs.
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/JeremiahDoyle/ssl-c2pa-sandbox.git
+cd ssl-c2pa-sandbox
+
+# Install dependencies (includes automatic c2patool installation)
 npm install
+
+# Configure environment (optional - uses test credentials by default)
+cp .env.example .env
+# Edit .env with your SSL.com API credentials if needed
+```
+
+**Note:** The `npm install` command automatically downloads and installs the `c2patool` binary required for image signing. If auto-installation fails, you can manually install it:
+
+```bash
+# Manual c2patool installation (if needed)
+npm run install:c2patool
+
+# Or download manually from:
+# https://github.com/contentauth/c2patool/releases/latest
+```
+
+### Running the Application
+
+**Development mode:**
+```bash
 npm run dev
+```
+
+**Production mode:**
+```bash
+npm run build
+npm start
 ```
 
 Visit `http://localhost:3000` to:
@@ -461,6 +494,31 @@ Visit `http://localhost:3000` to:
 - **Download** private keys, certificates, CSRs, and signed assets
 - **Test TSA endpoints** with both ECC and RSA timestamp servers
 - **Validate manifest JSON** with built-in schema validation
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+# SSL.com C2PA API Configuration
+API_BASE=https://api.c2patool.io
+AUTH_TOKEN=your_token_here
+
+# Certificate Profile IDs
+CERT_PROFILE_ID=764b6cdd-1c1b-4a46-9967-22a112a0b390  # ECC profile
+# CERT_PROFILE_ID=6ba3b70c-38fe-44c3-803f-910c5873d1d6  # RSA profile
+
+# Conforming Product ID (auto-generated if not set)
+CONFORMING_PRODUCT_ID=your-uuid-here
+
+# c2patool binary path (auto-detected if installed via npm)
+# C2PATOOL_PATH=/path/to/c2patool
+
+# Timestamp Authority URL
+TSA_URL=https://api.c2patool.io/api/v1/timestamps/ecc
+```
+
+**For testing without credentials:** The tool works without API credentials using shared test credentials. Simply run `npm install && npm run dev`.
 
 ## Support
 
