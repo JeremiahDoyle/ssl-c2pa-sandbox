@@ -84,3 +84,5 @@ The project automatically runs:
 - Private keys are generated and stored client-side only (never uploaded)
 - The c2patool binary (v0.9.12) is installed to `/home/runner/workspace/bin/c2patool/c2patool`
 - The `C2PATOOL_PATH` environment variable is configured in Replit Secrets to enable "Quick demo mode" for image signing
+- The C2PA trust anchors are downloaded to `/home/runner/workspace/c2pa-certs/anchors.pem` for signature validation
+- The `TRUST_ANCHORS_PATH` environment variable is configured in Replit Secrets for c2patool trust validation
