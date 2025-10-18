@@ -1,8 +1,0 @@
-{
-  "/_not-found/page": "/_not-found",
-  "/api/cert-requests/route": "/api/cert-requests",
-  "/docs/page": "/docs",
-  "/page": "/",
-  "/api/tsa/timestamp/route": "/api/tsa/timestamp",
-  "/api/sign/route": "/api/sign"
-}
