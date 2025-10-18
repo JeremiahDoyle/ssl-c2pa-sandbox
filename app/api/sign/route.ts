@@ -235,11 +235,7 @@ export async function POST(req: Request) {
     }
 
     // Invoke c2patool to sign using built-in demo cert/key (no private_key/sign_cert in manifest)
-    const args = [inPath, '-m', manifestPath, '-o', outPath];
-    const trust = process.env.TRUST_ANCHORS_PATH;
-    if (trust && existsSync(trust)) {
-      args.push('-f', 'trust', '--trust_anchors', trust);
-    }
+    const args = [inPath, '-m', manifestPath, '-o', outPath, '-f'];
 
     logger.info('Invoking c2patool', {
       reqId,
