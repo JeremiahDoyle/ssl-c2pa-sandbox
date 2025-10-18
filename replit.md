@@ -51,6 +51,7 @@ All environment variables are **optional** (defined in `lib/env.ts`):
 - `TSA_URL` - Timestamp authority URL
 - `CERT_PROFILE_ID` - Certificate profile UUID
 - `CONFORMING_PRODUCT_ID` - Product identifier UUID
+- `C2PATOOL_PATH` - Path to c2patool binary for "Quick demo mode" (set to `/home/runner/workspace/bin/c2patool/c2patool`)
 
 A shared test token is provided in `.env.example` for quick testing.
 
@@ -81,4 +82,5 @@ The project automatically runs:
 ## Notes
 - The app uses WebAssembly for C2PA operations (requires `wasm-unsafe-eval` in CSP)
 - Private keys are generated and stored client-side only (never uploaded)
-- The c2patool binary is installed to `/home/runner/workspace/bin/c2patool`
+- The c2patool binary (v0.9.12) is installed to `/home/runner/workspace/bin/c2patool/c2patool`
+- The `C2PATOOL_PATH` environment variable is configured in Replit Secrets to enable "Quick demo mode" for image signing
