@@ -1,3 +1,4 @@
 {
+  "/api/cert-requests/route": "app/api/cert-requests/route.js",
   "/page": "app/page.js"
 }
