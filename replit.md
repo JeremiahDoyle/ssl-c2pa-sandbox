@@ -45,15 +45,18 @@ This is an SSL.com C2PA (Coalition for Content Provenance and Authenticity) API 
 5. **API Documentation**: Comprehensive API docs with code examples
 
 ### Environment Variables
-All environment variables are **optional** (defined in `lib/env.ts`):
-- `AUTH_TOKEN` - SSL.com API bearer token (shared test token available)
-- `API_BASE` - API base URL (defaults to https://api.c2patool.io)
-- `TSA_URL` - Timestamp authority URL
-- `CERT_PROFILE_ID` - Certificate profile UUID
-- `CONFORMING_PRODUCT_ID` - Product identifier UUID
-- `C2PATOOL_PATH` - Path to c2patool binary for "Quick demo mode" (set to `/home/runner/workspace/bin/c2patool/c2patool`)
+The following environment variables are configured in Replit Secrets:
+- `AUTH_TOKEN` - SSL.com API bearer token (shared test token: `9b049...993ab`)
+- `CERT_PROFILE_ID` - ECC C2PA certificate profile ID (`764b6cdd-1c1b-4a46-9967-22a112a0b390`)
+- `CONFORMING_PRODUCT_ID` - Product identifier UUID (`f5ac57ef-428e-4a82-8852-7bde10b33060`)
+- `C2PATOOL_PATH` - Path to c2patool binary (`/home/runner/workspace/bin/c2patool/c2patool`)
+- `TRUST_ANCHORS_PATH` - C2PA trust anchors path (`/home/runner/workspace/c2pa-certs/anchors.pem`)
 
-A shared test token is provided in `.env.example` for quick testing.
+Optional environment variables (have defaults in `lib/env.ts`):
+- `API_BASE` - API base URL (defaults to https://api.c2patool.io)
+- `TSA_URL` - Timestamp authority URL (defaults to ECC TSA endpoint)
+
+All credentials are from the shared test environment provided in `.env.example` for quick testing.
 
 ## Replit Configuration
 
